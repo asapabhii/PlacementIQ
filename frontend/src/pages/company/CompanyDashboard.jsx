@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import api from '../../api/axios';
 import { Briefcase, IndianRupee, Users, ArrowRight } from 'lucide-react';
-import { format } from 'date-fns';
 import { useAuth } from '../../context/AuthContext';
 
 export default function CompanyDashboard() {
@@ -46,7 +45,7 @@ export default function CompanyDashboard() {
               <div>
                 <h3 className="font-semibold text-white text-lg">{drive.role_offered}</h3>
                 <p className="text-xs text-gray-400 mt-1">
-                  {format(new Date(drive.drive_date), 'MMMM d, yyyy')}
+                  {new Date(drive.drive_date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
                 </p>
               </div>
               <span className={`px-2 py-1 text-xs font-medium rounded-full ${drive.status === 'Open' ? 'bg-success-400/10 text-success-400' : 'bg-gray-400/10 text-gray-400'}`}>
