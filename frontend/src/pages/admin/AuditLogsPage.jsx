@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import api from '../../api/axios';
 import { Shield, Clock, User, Activity } from 'lucide-react';
-import { format } from 'date-fns';
 
 export default function AuditLogsPage() {
   const [logs, setLogs] = useState([]);
@@ -30,6 +29,13 @@ export default function AuditLogsPage() {
       case 'DELETE': return 'text-danger-400 bg-danger-400/10';
       default: return 'text-gray-400 bg-gray-400/10';
     }
+  };
+
+  const formatDate = (dateString) => {
+    return new Date(dateString).toLocaleString('en-US', { 
+      month: 'short', day: 'numeric', year: 'numeric', 
+      hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false 
+    });
   };
 
   if (loading) return <div className="p-8 text-gray-400">Loading audit trail...</div>;
@@ -68,7 +74,7 @@ export default function AuditLogsPage() {
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center gap-2 text-gray-400">
                         <Clock size={14} />
-                        {format(new Date(log.timestamp), 'MMM d, yyyy HH:mm:ss')}
+                        {formatDate(log.timestamp)}
                       </div>
                     </td>
                     <td className="px-6 py-4">
