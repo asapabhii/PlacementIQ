@@ -2,6 +2,8 @@
 
 PlacementIQ is a smart campus recruitment and analytics platform designed to streamline the placement process for students, placement officers (admins), and company recruiters.
 
+Live: https://placementiq.asapabhi.me
+
 ## Features
 - **Admin Dashboard**: Live analytics for branch-wise placements, top recruiting companies, and drive funnel tracking. Manage companies, drives, and student offers.
 - **Audit Logs**: Secure tracking of all mutating actions performed by placement admins.
@@ -14,22 +16,3 @@ PlacementIQ is a smart campus recruitment and analytics platform designed to str
 - **Frontend**: React (Vite), TailwindCSS, Framer Motion, Recharts
 - **Backend**: Node.js, Express, Prisma ORM
 - **Database**: PostgreSQL (Neon Serverless)
-
-## Running Locally
-
-### Backend
-1. `cd backend`
-2. `npm install`
-3. Make sure `.env` has `DATABASE_URL` (Neon Postgres).
-4. `npx prisma db push`
-5. `npm run dev`
-
-### Frontend
-1. `cd frontend`
-2. `npm install`
-3. `npm run dev`
-
-## Demo Credentials
-- **Admin**: `placements@christuniversity.in` / `password123`
-- **Company**: `infosys@christuniversity.in` / `password123`
-- **Student**: `2343004@christuniversity.in` / `password123` (or any valid seeded student ID)
